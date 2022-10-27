@@ -42,4 +42,26 @@ app.post('/soma', function(req, res){
   
 
   //MULTIPLICAÇÃO//
+  app.post('/mult', function(req,res){
+    var body = req.body;
+    var resultado = mult(body.a, body.b);
+
+    res.send(`O resultado da multiplicação entre ${body.a} e ${body.b} é ${resultado}`)
+  });
+
+  function mult(a, b){
+    return a * b;
+  }
+
+  //DIVISÃO//
+  app.post('/div', function(req,res){
+    var body = req.body;
+    var resultado = div(body.a, body.b);
+
+    res.send(`O resultado da divisão entre ${body.a} e ${body.b} é ${resultado}`);
+  });
+
+  function div(a, b){
+    return (a / b);
+  }
 

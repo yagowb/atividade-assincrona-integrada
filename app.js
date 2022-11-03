@@ -7,13 +7,15 @@ app.get('/', function(req, res) {
   res.send('Oi, mundo :-)');
 });
 
-var port = 3001;
 
-// iniciando o processo do servidor
-app.listen(port, function() {
-  console.log(`App de Exemplo escutando na porta http://localhost:${port}/`);
-});
-//
+app.listen(3001, function(erro){
+  if(erro){
+      console.log("Erro ao iniciar servidor");
+  }else{
+      console.log("Servidor iniciado com sucesso");
+  }
+})
+
 
 //SOMA//
 app.post('/soma', function(req, res){
@@ -33,7 +35,7 @@ app.post('/soma', function(req, res){
     var body = req.body;
     var resultado = sub(body.a, body.b);
 
-    res.send(`O resultado da subtração entre ${body.a} e ${body.b} é ${resultado}`)
+    res.send(`O resultado da subtração entre ${body.a} e ${body.b} é ${resultado}`);
   });
 
   function sub(a, b){
@@ -46,7 +48,7 @@ app.post('/soma', function(req, res){
     var body = req.body;
     var resultado = mult(body.a, body.b);
 
-    res.send(`O resultado da multiplicação entre ${body.a} e ${body.b} é ${resultado}`)
+    res.send(`O resultado da multiplicação entre ${body.a} e ${body.b} é ${resultado}`);
   });
 
   function mult(a, b){
